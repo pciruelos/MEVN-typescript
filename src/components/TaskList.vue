@@ -1,9 +1,18 @@
 <template>
-  <ul>
-    <li v-for="(task, index) in tasks" :key="index">
-        {{task.title}}
-    </li>
-  </ul>
+  <div class="container p-5">
+    <ul class="list-group">
+      <li
+        v-for="(task, index) in tasks"
+        :key="index"
+        @click="this.$router.push(`/tasks/${task._id}`)"
+        class="list-group-item list-group-item-action"
+        style="cursor: pointer"
+      >
+        {{ index + 1 }} -
+        {{ task.title }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
